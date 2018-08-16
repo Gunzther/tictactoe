@@ -1,6 +1,5 @@
 package tictactoe;
 
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -12,6 +11,8 @@ import javafx.scene.layout.Pane;
 /**
  * UI controller for the JavaFX interface to tic-tac-toe game.
  * This class handles user input events.
+ * 
+ * @author jim
  */
 public class GameController {
 	@FXML
