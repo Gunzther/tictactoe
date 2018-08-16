@@ -3,11 +3,14 @@ package tictactoe;
 import java.util.function.Predicate;
 
 import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.Property;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.Node;
 
-
+/**		
+* This class contain logic of the tictactoe game.		
+* 		
+* @author jim		
+*/
 public class TicTacToeGame {
 	private final int boardsize;
 	/** View of the TicTacToe board. */
@@ -47,7 +50,11 @@ public class TicTacToeGame {
 	 */
 	public boolean canMoveTo(Player player, int col, int row) {
 		if (row<0 || row>pieces.length) return false;
+		//no moves allowed after the game end!
 		if (col<0 || col>pieces[row].length) return false;
+		//check if the square is empty
+		//no move allowed after game is over
+		if(isGameOver())return false;
 		return pieces[row][col] == null || pieces[row][col] == Piece.NONE;
 	}
 	
@@ -71,7 +78,8 @@ public class TicTacToeGame {
 		if (piece.type == Player.X) nextPlayer = Player.O;
 		else nextPlayer = Player.X;
 		/** after each move check if board is full */
-		if (boardIsFull()) gameOver.set(true);
+		/** and check if someone won the game. */
+		if (boardIsFull() || winner() != Player.NONE) gameOver.set(true);
 		
 	}
 	
