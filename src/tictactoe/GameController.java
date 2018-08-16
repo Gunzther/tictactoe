@@ -1,6 +1,5 @@
 package tictactoe;
 
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -12,6 +11,8 @@ import javafx.scene.layout.Pane;
 /**
  * UI controller for the JavaFX interface to tic-tac-toe game.
  * This class handles user input events.
+ * 
+ * @author jim
  */
 public class GameController {
 	@FXML
@@ -30,7 +31,7 @@ public class GameController {
 	
 	@FXML
 	public void initialize() {
-		game = new TicTacToeGame(3);
+		game = new TicTacToeGame(4);
 		Board board = game.getBoard();
 		// make the board size match the size of pane where it is shown
 		centerPane.getChildren().add(board);
