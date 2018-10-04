@@ -77,7 +77,7 @@
 
 	<target name="jar" depends="compile">
 		<mkdir dir="${dist.dir}" />
-		<jar destfile="dist/TicTacToeGame.jar" basedir="${build.dir}">
+		<jar destfile="TicTacToeGame.jar" basedir="${build.dir}">
 			<manifest>
 				<attribute name="Main-Class" value="tictactoe.Main" />
 			</manifest>
