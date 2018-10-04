@@ -1,5 +1,8 @@
 ## Tic-Tac-Toe
 
+### Status
+[![Build Status](https://travis-ci.org/KameriiJ/tictactoe.png)](https://travis-ci.org/KameriiJ/tictactoe)
+
 ### Description
 
 A tic-tac-toe game written using JavaFX.
