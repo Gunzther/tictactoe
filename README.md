@@ -1,5 +1,4 @@
-## Tic-Tac-Toe
-[![Build Status](https://travis-ci.org/KameriiJ/tictactoe.png)](https://travis-ci.org/KameriiJ/tictactoe)
+## Tic-Tac-Toe [![Build Status](https://travis-ci.org/KameriiJ/tictactoe.png)](https://travis-ci.org/KameriiJ/tictactoe)
 
 ### Description
 
