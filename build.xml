@@ -5,7 +5,7 @@
     To specify your own lib dir use:
       ant -Dlib.dir=/your/junit/dir test
  -->
-<project name="tictactoe" default="${test.dir}" basedir=".">
+<project name="tictactoe" default="test" basedir=".">
 	<description> Tictactoe project for testing with CI. </description>
 
 	<!-- location of src and output (build) directories. -->
@@ -47,17 +47,22 @@
 	<!-- compile the source code -->
 	<target name="compile" depends="init" description="Compile source code">
 		<javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false" />
+		<copy todir="${build.dir}">
+			<fileset dir="${src.dir}">
+				<include name="**/*.fxml" />
+			</fileset>
+		</copy>
 	</target>
 
 	<!-- compile the test code -->
 	<target name="test-compile" depends="init,compile" description="Compile unit test source code">
-		<javac srcdir="${test.dir}" destdir="${test.build.dir}" includeantruntime="false">
+		<javac srcdir="${test.src.dir}" destdir="${test.build.dir}" includeantruntime="false">
 			<classpath refid="test.classpath" />
 		</javac>
 	</target>
 
 	<!-- Test the code using JUnit. -->
-	<target name="${test.dir}" depends="test-compile" description="Run unit tests">
+	<target name="test" depends="test-compile" description="Run unit tests">
 		<junit fork="true" printsummary="on" haltonfailure="false">
 			<classpath>
 				<path refid="test.classpath" />
@@ -71,17 +76,12 @@
 	</target>
 
 	<target name="jar" depends="compile">
-		<mkdir dir="dist" />
+		<mkdir dir="${dist.dir}" />
 		<jar destfile="dist/TicTacToeGame.jar" basedir="${build.dir}">
 			<manifest>
 				<attribute name="Main-Class" value="tictactoe.Main" />
 			</manifest>
 		</jar>
-		<copy todir="destination dir">
-			<fileset dir="dist">
-				<include name="**/*.fxml" />
-			</fileset>
-		</copy>
 	</target>
 
 	<target name="run" depends="jar">
