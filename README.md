@@ -1,6 +1,6 @@
 ## Tic-Tac-Toe
 
-### Status
+### Travis Status
 [![Build Status](https://travis-ci.org/KameriiJ/tictactoe.png)](https://travis-ci.org/KameriiJ/tictactoe)
 
 ### Description
